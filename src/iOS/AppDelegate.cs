@@ -54,6 +54,9 @@ namespace Bit.iOS
             _eventService = ServiceContainer.Resolve<IEventService>("eventService");
 
             LoadApplication(new App.App(null));
+            //InsertXB.InsertManager.SharedManager().InitSDK("80214e7337e25987e3f1bf42de4ed5eebf9d1f68c6afb11bb99d8767c6b2699ae727d49769d3b4315a6f0974b8b7bbc8651a558b7a9df5b876aafaf5913857bd.203156d59e96a7844f39148fd5db0a30.bd469b15cd51b70579f5ca430cb615f187122487e8c313d41a0b34852d771421", "roitest", null);
+            PendoXB.PendoManager.SharedManager().InitSDK("eyJhbGciOiJSUzI1NiIsImtpZCI6IiIsInR5cCI6IkpXVCJ9.eyJkYXRhY2VudGVyIjoidXMiLCJrZXkiOiJiYTM3MWU3YWY3MjJkNGRlZmY3NzEwODAwMDVkZTFiYTFhZmI2ZTMxMTRjMmU5MzMwMzk4YjBhZjZkMmM0ZTI2ZDAwYmVhMTcwMzJkZmI0OTczYmIwNTFkMTBiZWEzYjU3M2FkN2RmMWI4Yzk1ZDAwNjI0MDliZTYxMWU5MGZhYS4zNjE4ZjBjNWM0OGZiYTIzZmNmYmQzODExM2NjNTI0MC4zYzQ0MDMxNjZhMGU4MWM2ZTE1Yzc5ZGEwMmYxNjhiZjMwZDMwMmVlZDc3MTg4MGZlYWY2MDg5MmQ0ZDBhMzM4In0.TN3PoE9dNGlIkHB3mfIoSiWlqmjNoEjp64RU4V95VCBhYXB2N1pvzFNHTTWo7w6V7cKFa9UG1V2LskmpyixjXnfPetBWh6x5IduNUbM6VzhhsMHpzhsjQXHyJlwJyM76XtBl_HjR-ZeVNI5bapT9bzvGrckjE-TDSkVYl_kav6s", null);
+           
             iOSCoreHelpers.AppearanceAdjustments(_deviceActionService);
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
@@ -238,6 +241,12 @@ namespace Bit.iOS
         public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication,
             NSObject annotation)
         {
+            if (url.Scheme.Contains("pendo"))
+            {
+                //InsertXB.InsertManager.SharedManager().InitWithUrl(url);
+                PendoXB.PendoManager.SharedManager().InitWithUrl(url);
+                return true;
+            }
             return true;
         }
 

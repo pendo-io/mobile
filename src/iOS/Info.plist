@@ -27,6 +27,14 @@
 			<key>CFBundleURLName</key>
 			<string>com.8bit.bitwarden.url</string>
 		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>pendo-fb11d20e</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pendo-fb11d20e</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleLocalizations</key>
 	<array>
@@ -125,5 +133,7 @@
 	<string>Use Face ID to unlock your vault.</string>
 	<key>NFCReaderUsageDescription</key>
 	<string>Use Yubikeys for two-facor authentication.</string>
+	<key>IIOLogSeverity</key>
+	<integer>0</integer>
 </dict>
 </plist>
